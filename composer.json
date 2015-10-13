@@ -1,0 +1,6 @@
+{
+    "name": "phossa/phossa-shared",
+    "require": {
+        "php": ">=5.4.0"
+    }
+}
