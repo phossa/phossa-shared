@@ -14,8 +14,8 @@ namespace Phossa\Shared\Message\Loader;
  * Message loader interface
  *
  * Used for loading message mappings (such as language translations) for
- * different message classes from various source, e.g. from scattered language
- * files or one big file or from DB.
+ * different message classes from various source, e.g. from scattered
+ * language files or one big file or from DB.
  *
  * @interface
  * @package \Phossa\Shared
@@ -26,17 +26,17 @@ namespace Phossa\Shared\Message\Loader;
 interface LoaderInterface
 {
     /**
-     * Load message mappings for $class.
+     * Load message mappings for the message $class.
      *
      * No exception thrown since this may cause infinite loop (Message usually
      * used with Exception). Return empty array if not found.
      *
-     * @param  string $className the fully qualified class name
+     * @param  string $className the fully qualified message class name
      * @return array
      * @access public
      * @api
      */
-    public function loadMessageMappings(
+    public function loadMessages(
         /*# string */ $className
     )/*# : array */;
 }

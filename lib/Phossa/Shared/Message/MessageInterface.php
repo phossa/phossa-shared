@@ -13,8 +13,7 @@ namespace Phossa\Shared\Message;
 /**
  * Message interface
  *
- * Convert a message code (constant) into readable message. Message translation
- * and formatting is possible via message 'Loader' and message 'Formatter'.
+ * Convert a message code (constant) into readable message.
  *
  * @interface
  * @package \Phossa\Shared
@@ -37,7 +36,7 @@ interface MessageInterface
      * e.g.
      * <code>
      *     // result: 'Hello John'
-     *     Message::get(Message::MSG_HELLO, 'John');
+     *     MyMessage::get(MyMessage::MSG_HELLO, 'John');
      * </code>
      *
      * @return string

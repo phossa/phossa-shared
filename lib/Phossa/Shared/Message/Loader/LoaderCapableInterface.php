@@ -13,6 +13,11 @@ namespace Phossa\Shared\Message\Loader;
 /**
  * Set/get the message mapping loader
  *
+ * - Loader is used to load different mappings instead of using the default.
+ *   Usually, it is used to load language files.
+ *
+ * - Different message class may use different loader.
+ *
  * @interface
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
@@ -23,7 +28,7 @@ namespace Phossa\Shared\Message\Loader;
 interface LoaderCapableInterface
 {
     /**
-     * Set the message mapping loader.
+     * Set loader for current message class (static bind)
      *
      * @param  LoaderInterface $loader the mapping loader
      * @return void
@@ -31,31 +36,68 @@ interface LoaderCapableInterface
      * @static
      * @api
      */
-    public static function setMessageLoader(
+    public static function setLoader(
         LoaderInterface $loader
     );
 
     /**
-     * Get the message mapping loader.
+     * Unset loader for current calling class (static bind)
+     *
+     * @param  void
+     * @return void
+     * @access public
+     * @static
+     * @api
+     */
+    public static function unsetLoader();
+
+    /**
+     * Get loader for current calling class (static bind)
      *
      * @param  void
      * @return LoaderInterface
      * @throws Exception\NotFoundException
-     *         if no loader found
      * @access public
      * @static
      * @api
      */
-    public static function getMessageLoader()/*# : LoaderInterface */;
+    public static function getLoader()/*# : LoaderInterface */;
 
     /**
-     * Check the message mapping loader.
+     * Check loader for current calling class (static bind)
      *
-     * @param  void
-     * @return bool
+     * if $search is true, search upwards in inhertiant tree for loader
+     * if current class has no loader set
+     *
+     * @param  bool $search search upwards
+     * @return mixed false | classname for which has loader
      * @access public
      * @static
      * @api
      */
-    public static function hasMessageLoader()/*# : bool */;
+    public static function hasLoader($search = true);
+
+    /**
+     * Unset loader (all classes using this loader)
+     *
+     * @param  LoaderInterface $loader
+     * @return void
+     * @access public
+     * @static
+     * @api
+     */
+    public static function unsetTheLoader(
+        LoaderInterface $loader
+    );
+
+    /**
+     * Get all loaders in [ classname => $loader ] mapping array
+     *
+     * @param  void
+     * @return array
+     * @access public
+     * @static
+     * @api
+     */
+    public static function getLoaders()/*# : array */;
 }

@@ -13,73 +13,138 @@ namespace Phossa\Shared\Message\Loader;
 use Phossa\Shared\Exception;
 
 /**
- * Loader capable Trait
- *
- * Implementation of LoaderCapableInterface.
+ * Implementation of LoaderCapableInterface
  *
  * @trait
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     LoaderCapableInterface
  * @version 1.0.0
  * @since   1.0.0 added
  */
 trait LoaderCapableTrait
 {
     /**
-     * Message loader
+     * Message loaders pool, [ classname => $loader ]
      *
-     * Used to load message mappings. Shared by all descendant classes
-     *
-     * @var    LoaderInterface
-     * @type   LoaderInterface
+     * @var    array
+     * @type   array
      * @access private
      * @static
      */
-    private static $loader = null;
+    private static $loaders = [];
 
     /**
-     * Set the message mapping loader.
+     * loader update indicator
      *
-     * @param  LoaderInterface $loader the mapping loader
+     * @var    bool
+     * @type   bool
+     * @access private
+     * @static
+     */
+    private static $updated = false;
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function setLoader(
+        LoaderInterface $loader
+    ) {
+        // set loader for current class
+        self::$loaders[get_called_class()] = $loader;
+
+        // update indicator
+        static::setStatus(true);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function unsetLoader()
+    {
+        // unset loader for current class
+        unset(self::$loaders[get_called_class()]);
+
+        // update indicator
+        static::setStatus(true);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getLoader()/*# : LoaderInterface */
+    {
+        $class = get_called_class();
+        if (isset(self::$loaders[$class])) {
+            return self::$loaders[$class];
+        }
+        throw new Exception\NotFoundException(
+            sprintf('Message loader not found for "%s"', $class)
+        );
+    }
+
+    /**
+     * {@inhertitdoc}
+     */
+    public static function hasLoader($search = true)
+    {
+        $class = get_called_class();
+        if (isset(self::$loaders[$class])) return $class;
+
+        if ($search) {
+            do {
+                if (isset(self::$loaders[$class])) return $class;
+            } while (($class = get_parent_class($class)));
+        }
+
+        return false;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function unsetTheLoader(
+        LoaderInterface $loader
+    ) {
+        foreach(self::$loaders as $c => $l) {
+            if ($loader === $l) {
+                $c::unsetLoader();
+            }
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function getLoaders()/*# : array */
+    {
+        return self::$loaders;
+    }
+
+    /**
+     * Set updated indicator
+     *
+     * @param  bool $status updated status
      * @return void
-     * @access public
+     * @access protected
      * @static
      * @api
      */
-    public static function setMessageLoader(LoaderInterface $loader)
+    protected static function setStatus($status = true)
     {
-        self::$loader = $loader;
+        self::$updated = $status;
     }
 
     /**
-     * Get the message mapping loader.
-     *
-     * @param  void
-     * @return LoaderInterface
-     * @throws Exception\NotFoundException
-     *         if no loader found
-     * @access public
-     * @static
-     * @api
-     */
-    public static function getMessageLoader()/*# : LoaderInterface */
-    {
-        if (self::hasMessageLoader()) return self::$loader;
-        throw new Exception\NotFoundException('Message loader not found');
-    }
-
-    /**
-     * Check the message mapping loader.
+     * Get updated indicator
      *
      * @param  void
      * @return bool
-     * @access public
+     * @access protected
      * @static
      * @api
      */
-    public static function hasMessageLoader()/*# : bool */
+    protected static function getStatus()/*: bool */
     {
-        return self::$loader !== null;
+        return self::$updated;
     }
 }

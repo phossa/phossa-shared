@@ -13,6 +13,9 @@ namespace Phossa\Shared\Message\Formatter;
 /**
  * Message formatter interface
  *
+ * Used for formatting message, such as adding html tags for displaying in
+ * browsers.
+ *
  * @interface
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>

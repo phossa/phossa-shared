@@ -11,7 +11,9 @@
 namespace Phossa\Shared\Message\Formatter;
 
 /**
- * Message formatter capable interface
+ * Set/get the message formatter
+ *
+ * Formatter is used to format the result message.
  *
  * @interface
  * @package \Phossa\Shared
@@ -23,7 +25,7 @@ namespace Phossa\Shared\Message\Formatter;
 interface FormatterCapableInterface
 {
     /**
-     * Set the formatter.
+     * Set formatter
      *
      * @param  FormatterInterface $formatter the message formatter
      * @return void
@@ -31,25 +33,35 @@ interface FormatterCapableInterface
      * @static
      * @api
      */
-    public static function setMessageFormatter(
+    public static function setFormatter(
         FormatterInterface $formatter
     );
 
     /**
-     * Get the formatter.
+     * Unset formatter, and use the default
      *
      * @param  void
-     * @return FormatterInterface
-     * @throws Exception\NotFoundException
-     *         if no formatter found
+     * @return void
      * @access public
      * @static
      * @api
      */
-    public static function getMessageFormatter()/*# : FormatterInterface */;
+    public static function unsetFormatter();
 
     /**
-     * Check the formatter.
+     * Get formatter
+     *
+     * @param  void
+     * @return FormatterInterface
+     * @throws Exception\NotFoundException
+     * @access public
+     * @static
+     * @api
+     */
+    public static function getFormatter()/*# : FormatterInterface */;
+
+    /**
+     * Check formatter existanse
      *
      * @param  void
      * @return bool
@@ -57,5 +69,5 @@ interface FormatterCapableInterface
      * @static
      * @api
      */
-    public static function hasMessageFormatter()/*# : bool */;
+    public static function hasFormatter()/*# : bool */;
 }

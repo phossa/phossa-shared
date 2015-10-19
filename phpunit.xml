@@ -1,7 +1,8 @@
-<phpunit bootstrap="test/bootstrap.php">
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php">
   <testsuites>
     <testsuite name="test">
-      <directory>test</directory>
+      <directory>tests</directory>
     </testsuite>
   </testsuites>
 </phpunit>

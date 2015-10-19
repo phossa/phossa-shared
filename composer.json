@@ -1,5 +1,6 @@
 {
     "name": "phossa/phossa-shared",
+    "version": "1.0.0",
     "license": "MIT",
     "type": "library",
     "description": "The shared package of Phossa framework",
@@ -18,6 +19,6 @@
         "php": ">=5.4.0"
     },
     "archive": {
-        "exclude": ["!vendor", "test", "*phpunit.xml",  "composer.phar"]
+        "exclude": ["!vendor", "tests", "*phpunit.xml",  "composer.lock"]
     }
 }

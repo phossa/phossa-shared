@@ -8,7 +8,7 @@
  */
 /*# declare(strict_types=1); */
 
-namespace Phossa\Shared\Message\Manager;
+namespace Phossa\Shared\Message\Mapping;
 
 /**
  * Managing the message mappings
@@ -20,57 +20,59 @@ namespace Phossa\Shared\Message\Manager;
  * @version 1.0.0
  * @since   1.0.0 added
  */
-interface MessageManagerInterface
+interface MessageMappingInterface
 {
     /**
-     * Merge the code to message mapping array
-     *
-     * @type  int
-     * @const
-     */
-    const MODE_MERGE    = 1;
-
-    /**
-     * Replace the code to message mapping array
-     *
-     * @type  int
-     * @const
-     */
-    const MODE_REPLACE  = 2;
-
-    /**
-     * Merge or overwrite the code to message template mappings.
+     * Set current class' message mappings (static bind)
      *
      * e.g.
      * <code>
-     *     MyMessage::setMessageMappings([
+     *     MyMessage::setMappings([
      *         MyMessage::MSG_HELLO => 'Hello %s'
      *     ]);
      * </code>
      *
      * @param  array $messages messages mapping array
-     * @param  int $mode merge or replace
      * @return void
      * @access public
      * @static
      */
-    public static function setMessageMappings(
-        array $messages,
-        /*# int */ $mode = MessageManagerInterface::MODE_MERGE
+    public static function setMappings(
+        array $messages
     );
 
     /**
-     * Get current code to message template mapping array
+     * Check current class' message mapping array
+     *
+     * @param  void
+     * @return bool
+     * @access public
+     * @static
+     */
+    public static function hasMappings()/*# : bool */;
+
+    /**
+     * Get current class' message mapping array
      *
      * @param  void
      * @return array
      * @access public
      * @static
      */
-    public static function getMessageMappings()/*# : array */;
+    public static function getMappings()/*# : array */;
 
     /**
-     * Check specific message template
+     * Reset to initial mappings status
+     *
+     * @param  void
+     * @return void
+     * @access public
+     * @static
+     */
+    public static function resetMappings();
+
+    /**
+     * Check message template from current class' message mapping
      *
      * @param  int $code the message code
      * @return bool
@@ -82,14 +84,11 @@ interface MessageManagerInterface
     )/*# : bool */;
 
     /**
-     * Get the specific message template
-     *
-     * May use static::hasMessage() first to avoid exception
+     * Get message template from current class' message mapping
      *
      * @param  int $code the message code
      * @return string
      * @throws Exception\NotFoundException
-     *         if message code $code not found
      * @access public
      * @static
      */
