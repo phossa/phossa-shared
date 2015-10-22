@@ -44,7 +44,7 @@ trait LoaderCapableTrait
     private static $updated = false;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function setLoader(
         LoaderInterface $loader
@@ -57,7 +57,7 @@ trait LoaderCapableTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function unsetLoader()
     {
@@ -69,7 +69,7 @@ trait LoaderCapableTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function getLoader()/*# : LoaderInterface */
     {
@@ -100,7 +100,7 @@ trait LoaderCapableTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function unsetTheLoader(
         LoaderInterface $loader
@@ -113,7 +113,7 @@ trait LoaderCapableTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function getLoaders()/*# : array */
     {
@@ -127,7 +127,6 @@ trait LoaderCapableTrait
      * @return void
      * @access protected
      * @static
-     * @api
      */
     protected static function setStatus($status = true)
     {
@@ -141,7 +140,6 @@ trait LoaderCapableTrait
      * @return bool
      * @access protected
      * @static
-     * @api
      */
     protected static function getStatus()/*: bool */
     {

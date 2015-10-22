@@ -46,7 +46,7 @@ trait MessageMappingTrait
     private static $mappings = [];
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function setMappings(
         array $messages
@@ -59,7 +59,7 @@ trait MessageMappingTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function hasMappings()/*# : bool */
     {
@@ -67,7 +67,7 @@ trait MessageMappingTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function getMappings()/*# : array */
     {
@@ -77,7 +77,7 @@ trait MessageMappingTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function resetMappings()
     {
@@ -85,7 +85,7 @@ trait MessageMappingTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function hasMessage(
         /*# int */ $code
@@ -94,7 +94,7 @@ trait MessageMappingTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function getMessage(
         /*# int */ $code

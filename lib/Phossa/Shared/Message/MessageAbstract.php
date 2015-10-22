@@ -67,7 +67,7 @@ abstract class MessageAbstract extends StaticAbstract implements
         Formatter\FormatterCapableTrait;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function get(/* ... */)/*# : string */
     {

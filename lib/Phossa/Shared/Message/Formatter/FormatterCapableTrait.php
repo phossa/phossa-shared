@@ -36,7 +36,7 @@ trait FormatterCapableTrait
     private static $formatter = null;
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function setFormatter(
         FormatterInterface $formatter
@@ -45,7 +45,7 @@ trait FormatterCapableTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function unsetFormatter()
     {
@@ -53,7 +53,7 @@ trait FormatterCapableTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function getFormatter()/*# : FormatterInterface */
     {
@@ -64,7 +64,7 @@ trait FormatterCapableTrait
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public static function hasFormatter()/*# : bool */
     {

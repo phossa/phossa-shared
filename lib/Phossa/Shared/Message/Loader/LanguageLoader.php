@@ -76,7 +76,7 @@ class LanguageLoader implements LoaderInterface
      *
      * language file name is something like 'Message.zh_CN.php'
      *
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function loadMessages(
         /*# string */ $className

@@ -55,7 +55,7 @@ class HtmlFormatter implements FormatterInterface
     }
 
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      */
     public function formatMessage(
         /*# string */ $template,
