@@ -41,7 +41,7 @@ interface LoaderCapableInterface
     );
 
     /**
-     * Unset loader for current calling class (static bind)
+     * Unset loader for current message class (static bind)
      *
      * @param  void
      * @return void
@@ -52,7 +52,7 @@ interface LoaderCapableInterface
     public static function unsetLoader();
 
     /**
-     * Get loader for current calling class (static bind)
+     * Get loader for current message class (static bind)
      *
      * @param  void
      * @return LoaderInterface
@@ -64,7 +64,7 @@ interface LoaderCapableInterface
     public static function getLoader()/*# : LoaderInterface */;
 
     /**
-     * Check loader for current calling class (static bind)
+     * Check loader for current message class (static bind) or ancestors
      *
      * if $search is true, search upwards in inhertiant tree for loader
      * if current class has no loader set
@@ -78,7 +78,7 @@ interface LoaderCapableInterface
     public static function hasLoader($search = true);
 
     /**
-     * Unset loader (all classes using this loader)
+     * Unset loader (unset with all classes using this loader)
      *
      * @param  LoaderInterface $loader
      * @return void
@@ -94,7 +94,7 @@ interface LoaderCapableInterface
      * Get all loaders in [ classname => $loader ] mapping array
      *
      * @param  void
-     * @return array
+     * @return LoaderInterface[]
      * @access public
      * @static
      * @api

@@ -18,6 +18,7 @@ use Phossa\Shared\Exception;
  * @trait
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
+ * @see     FormatterCapableInterface
  * @version 1.0.0
  * @since   1.0.0 added
  */
@@ -26,10 +27,10 @@ trait FormatterCapableTrait
     /**
      * Message formatter
      *
-     * Formatter is shared by all message classes.
+     * Formatter is shared by all descendant message classes.
      *
-     * @var    array
-     * @type   array
+     * @var    FormatterInterface
+     * @type   FormatterInterface
      * @access private
      * @static
      */

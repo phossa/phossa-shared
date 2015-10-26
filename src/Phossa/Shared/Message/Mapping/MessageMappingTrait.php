@@ -18,6 +18,7 @@ use Phossa\Shared\Exception;
  * @trait
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
+ * @see     MessageMappingInterface
  * @version 1.0.0
  * @since   1.0.0 added
  */
@@ -28,8 +29,8 @@ trait MessageMappingTrait
      *
      * This property HAS TO BE redefined for each descendant message class
      *
-     * @var     var
-     * @type    var
+     * @var     string[]
+     * @type    string[]
      * @access  protected
      * @static
      */

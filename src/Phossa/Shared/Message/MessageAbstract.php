@@ -21,7 +21,7 @@ use Phossa\Shared\Pattern\StaticAbstract;
  * - Message loader maybe used to load different message mapping such as
  *   language files.
  *
- * - Message formatter maybe used output message in different format.
+ * - Message formatter maybe used to output message in different format.
  *
  * - Once loader set for parent class, it will affect all the descendant
  *   classes unless they have own loader set.
@@ -53,6 +53,14 @@ use Phossa\Shared\Pattern\StaticAbstract;
  * @abstract
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
+ * @see     Phossa\Shared\Patter\StaticAbstract
+ * @see     MessageInterface
+ * @see     Loader\LoaderCapableInterface
+ * @see     Mapping\MessageMappingInterface
+ * @see     Formatter\FormatterCapableInterface
+ * @see     Loader\LoaderCapableTrait
+ * @see     Mapping\MessageMappingTrait
+ * @see     Formatter\FormatterCapableTrait
  * @version 1.0.0
  * @since   1.0.0 added
  */
@@ -123,7 +131,7 @@ abstract class MessageAbstract extends StaticAbstract implements
         /*# string */ $class
     ) {
         // mapping status changed ?
-        if (self::getStatus()) {
+        if (self::isStatusUpdated()) {
             self::resetMappings();
             self::setStatus(false);
         }
