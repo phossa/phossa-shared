@@ -18,7 +18,7 @@ use Phossa\Shared\Exception;
  * @trait
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     MessageMappingInterface
+ * @see     Phossa\Shared\Message\Mapping\MessageMappingInterface
  * @version 1.0.0
  * @since   1.0.0 added
  */
@@ -29,9 +29,9 @@ trait MessageMappingTrait
      *
      * This property HAS TO BE redefined for each descendant message class
      *
-     * @var     string[]
-     * @type    string[]
-     * @access  protected
+     * @var    string[]
+     * @type   string[]
+     * @access protected
      * @static
      */
     protected static $messages = [];
@@ -39,9 +39,9 @@ trait MessageMappingTrait
     /**
      * Message mapping cache
      *
-     * @var     array
-     * @type    array
-     * @access  private
+     * @var    array
+     * @type   array
+     * @access private
      * @static
      */
     private static $mappings = [];

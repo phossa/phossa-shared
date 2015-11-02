@@ -18,7 +18,7 @@ use Phossa\Shared\Exception;
  * @trait
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     LoaderCapableInterface
+ * @see     Phossa\Shared\Message\Loader\LoaderCapableInterface
  * @version 1.0.0
  * @since   1.0.0 added
  */

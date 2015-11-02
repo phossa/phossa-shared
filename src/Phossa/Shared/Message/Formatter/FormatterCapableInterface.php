@@ -18,7 +18,7 @@ namespace Phossa\Shared\Message\Formatter;
  * @interface
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     FormatterCapableTrait
+ * @see     Phossa\Shared\Message\FormatterCapableTrait
  * @version 1.0.0
  * @since   1.0.0 added
  */
@@ -53,7 +53,7 @@ interface FormatterCapableInterface
      *
      * @param  void
      * @return FormatterInterface
-     * @throws Exception\NotFoundException
+     * @throws Exception\NotFoundException if formatter not set
      * @access public
      * @static
      * @api

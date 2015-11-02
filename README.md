@@ -1,5 +1,6 @@
 # Introduction
-Phossa is a lightweight PHP framework. Phossa-shared is the shared package of this framework.
+Phossa is a lightweight PHP framework. Phossa-shared is the shared (common)
+package of this framework.
 
 # Features
 - Support PHP 5.4.

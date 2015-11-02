@@ -21,7 +21,7 @@ namespace Phossa\Shared\Message\Loader;
  * @interface
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     LoaderCapableTrait
+ * @see     Phossa\Shared\Message\Loader\LoaderCapableTrait
  * @version 1.0.0
  * @since   1.0.0 added
  */

@@ -54,13 +54,13 @@ use Phossa\Shared\Pattern\StaticAbstract;
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
  * @see     Phossa\Shared\Patter\StaticAbstract
- * @see     MessageInterface
- * @see     Loader\LoaderCapableInterface
- * @see     Mapping\MessageMappingInterface
- * @see     Formatter\FormatterCapableInterface
- * @see     Loader\LoaderCapableTrait
- * @see     Mapping\MessageMappingTrait
- * @see     Formatter\FormatterCapableTrait
+ * @see     Phossa\Shared\Message\MessageInterface
+ * @see     Phossa\Shared\Message\Loader\LoaderCapableInterface
+ * @see     Phossa\Shared\Message\Mapping\MessageMappingInterface
+ * @see     Phossa\Shared\Message\Formatter\FormatterCapableInterface
+ * @see     Phossa\Shared\Message\Loader\LoaderCapableTrait
+ * @see     Phossa\Shared\Message\Mapping\MessageMappingTrait
+ * @see     Phossa\Shared\Message\Formatter\FormatterCapableTrait
  * @version 1.0.0
  * @since   1.0.0 added
  */

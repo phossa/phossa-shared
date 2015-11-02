@@ -16,7 +16,7 @@ namespace Phossa\Shared\Message\Mapping;
  * @interface
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     MessageManagerTrait
+ * @see     Phossa\Shared\Message\Mapping\MessageManagerTrait
  * @version 1.0.0
  * @since   1.0.0 added
  */
