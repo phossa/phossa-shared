@@ -8,7 +8,7 @@ package of this framework.
 - Decoupled packages can be used seperately without the framework.
 
 # Version
-1.0.0
+1.0.3
 
 # Dependencies
 PHP >= 5.4.0

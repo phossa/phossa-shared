@@ -1,6 +1,6 @@
 {
     "name": "phossa/phossa-shared",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "license": "MIT",
     "type": "library",
     "description": "The shared package of Phossa framework",
