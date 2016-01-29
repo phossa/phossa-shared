@@ -4,7 +4,7 @@ package of this framework.
 
 # Features
 
-- Support PHP 5.4.
+- Support PHP 5.4+.
 
 - PHP7 ready for return type declarations and argument type declarations.
 
