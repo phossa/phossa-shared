@@ -1,8 +1,13 @@
-# Introduction
+# phossa-shared  [![Build Status](https://travis-ci.org/phossa/phossa-shared.svg)](https://travis-ci.org/phossa/phossa-shared.svg)
+
+Introduction
+---
+
 Phossa is a lightweight PHP framework. Phossa-shared is the shared (common)
 package of this framework.
 
-# Features
+Features
+---
 
 - Support PHP 5.4+.
 
@@ -10,10 +15,12 @@ package of this framework.
 
 - Decoupled packages can be used seperately without the framework.
 
-# Version
+Version
+---
 
 1.0.6
 
-# Dependencies
+Dependencies
+---
 
 PHP >= 5.4.0

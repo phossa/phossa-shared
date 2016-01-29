@@ -11,7 +11,7 @@
          bootstrap="tests/bootstrap.php"
 >
     <testsuites>
-        <testsuite name="phossa-shared test suite">
+        <testsuite name="test suite">
             <directory>./tests/src/</directory>
         </testsuite>
     </testsuites>
