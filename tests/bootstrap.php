@@ -4,7 +4,7 @@
 $basedir = dirname(__DIR__);
 
 if (file_exists(dirname($basedir).'/autoload.php')) {
-    # systemwide autoloader
+    # netbeans-env autoloader
     $loader = require dirname($basedir).'/autoload.php';
 } elseif (file_exists($basedir.'/vendor/autoload.php')) {
     # package autoloader
