@@ -11,7 +11,5 @@ if (file_exists(dirname($basedir).'/autoload.php')) {
     $loader = require $basedir.'/vendor/autoload.php';
 }
 
-# add default namespace map
-if (isset($loader)) {
-    $loader->set('', dirname(__DIR__) . '/src/');
-}
+$loader->add('Phossa\\Shared\\', $basedir . '/src/');
+$loader->add('Phossa\\Shared\\', __DIR__ . '/src/');
