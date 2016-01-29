@@ -1,6 +1,7 @@
 <?php
 
 # system wide composer autoloader
+/*
 $basedir = dirname(__DIR__);
 
 if (file_exists(dirname($basedir).'/autoload.php')) {
@@ -13,3 +14,9 @@ if (file_exists(dirname($basedir).'/autoload.php')) {
 
 $loader->add('Phossa\\Shared\\', $basedir . '/src/');
 $loader->add('Phossa\\Shared\\', __DIR__ . '/src/');
+ *
+ */
+require_once __DIR__.'/../vendor/autoload.php';
+$classLoader = new \Composer\Autoload\ClassLoader();
+$classLoader->add('Phossa\\Shared', __DIR__);
+$classLoader->register(true);
