@@ -62,29 +62,23 @@ trait ShareableTrait
     }
 
     /**
-     * prevent shareable copy from being cloned.
+     * __clone() is executed only on the cloned copy
      *
      * @param  void
-     * @throws \Phossa\Shared\Exception\BadMethodCallException
-     *         if shareable copy cloned
      * @access public
      */
     public function __clone()
     {
-        if ($this->isShareable()) {
-            throw new Exception\BadMethodCallException(
-                'This is the shareable/global copy. __clone() is forbidden'
-            );
-        }
     }
 
     /**
-     * prevent from being unserialized.
+     * prevent shareable copy from being serialized.
      *
      * @param  void
+     * @throws Exception\BadMethodCallException
      * @access public
      */
-    public function __wakeup()
+    public function __sleep()
     {
         if ($this->isShareable()) {
             throw new Exception\BadMethodCallException(

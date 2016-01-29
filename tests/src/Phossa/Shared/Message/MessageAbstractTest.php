@@ -128,7 +128,6 @@ class MessageAbstractTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Phossa\Shared\Message\MessageAbstract::unsetTheLoader
-     * @todo   Implement testUnsetTheLoader().
      */
     public function testUnsetTheLoader()
     {
@@ -152,7 +151,6 @@ class MessageAbstractTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Phossa\Shared\Message\MessageAbstract::setMappings
-     * @todo   Implement testSetMappings().
      */
     public function testSetMappings()
     {
@@ -171,7 +169,6 @@ class MessageAbstractTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers Phossa\Shared\Message\MessageAbstract::getMappings
-     * @todo   Implement testGetMappings().
      */
     public function testGetMappings()
     {
