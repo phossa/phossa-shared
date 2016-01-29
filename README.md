@@ -1,4 +1,9 @@
-# phossa-shared  [![Build Status](https://travis-ci.org/phossa/phossa-shared.svg)](https://travis-ci.org/phossa/phossa-shared.svg)
+# phossa-shared
+[![Build Status](https://travis-ci.org/phossa/phossa-shared.svg)](https://travis-ci.org/phossa/phossa-shared.svg)
+[![HHVM Status](http://hhvm.h4cc.de/badge/phossa/phossa-shared.svg)](http://hhvm.h4cc.de/package/phossa/phossa-shared)
+[![Latest Stable Version](https://poser.pugx.org/phossa/phossa-shared/v/stable)](https://packagist.org/packages/phossa/phossa-shared)
+[![Latest Unstable Version](https://poser.pugx.org/phossa/phossa-shared/v/unstable)](https://packagist.org/packages/phossa/phossa-shared)
+[![License](https://poser.pugx.org/phossa/phossa-shared/license)](https://packagist.org/packages/phossa/phossa-shared)
 
 Introduction
 ---
