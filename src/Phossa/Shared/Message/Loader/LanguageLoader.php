@@ -83,9 +83,8 @@ class LanguageLoader implements LoaderInterface
      *
      * {@inheritDoc}
      */
-    public function loadMessages(
-        /*# string */ $className
-    )/*# : array */ {
+    public function loadMessages(/*# string */ $className)/*# : array */
+    {
         $map = [];
 
         // reflect

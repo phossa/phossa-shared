@@ -67,7 +67,7 @@ Features
         const CACHE_MESSAGE         = 1512220901;
 
         protected static $messages = [
-            self::CACHE_MESSAGE         => '%s',
+            self::CACHE_MESSAGE         => 'cache %s',
         ];
     }
 

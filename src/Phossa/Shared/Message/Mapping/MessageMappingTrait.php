@@ -90,18 +90,16 @@ trait MessageMappingTrait
     /**
      * {@inheritDoc}
      */
-    public static function hasMessage(
-        /*# int */ $code
-    )/*# : bool */ {
+    public static function hasMessage(/*# int */ $code)/*# : bool */
+    {
         return isset(static::$messages[$code]);
     }
 
     /**
      * {@inheritDoc}
      */
-    public static function getMessage(
-        /*# int */ $code
-    )/*# : string */ {
+    public static function getMessage(/*# int */ $code)/*# : string */
+    {
         $mapping = static::getMappings();
         if (isset($mapping[$code])) {
             return $mapping[$code];

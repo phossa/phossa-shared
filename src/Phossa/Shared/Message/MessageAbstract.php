@@ -133,9 +133,8 @@ abstract class MessageAbstract extends StaticAbstract implements
      * @access protected
      * @static
      */
-    protected static function loadMappings(
-        /*# string */ $class
-    ) {
+    protected static function loadMappings(/*# string */ $class)
+    {
         // mapping status changed ?
         if (self::isStatusUpdated()) {
             self::resetMappings();
