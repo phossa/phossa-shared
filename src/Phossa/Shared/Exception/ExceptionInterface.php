@@ -21,5 +21,4 @@ namespace Phossa\Shared\Exception;
  */
 interface ExceptionInterface
 {
-
 }

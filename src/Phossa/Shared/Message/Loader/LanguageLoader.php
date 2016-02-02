@@ -92,7 +92,9 @@ class LanguageLoader implements LoaderInterface
             $nfile = substr_replace($file, '.' . $this->language . '.php', -4);
             if (file_exists($nfile)) {
                 $res = include $nfile;
-                if (is_array($res)) $map = $res;
+                if (is_array($res)) {
+                    $map = $res;
+                }
             }
         }
 

@@ -22,5 +22,4 @@ namespace Phossa\Shared\Exception;
 class DuplicationFoundException extends \RuntimeException implements
     ExceptionInterface
 {
-
 }

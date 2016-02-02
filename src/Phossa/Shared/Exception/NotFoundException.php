@@ -22,5 +22,4 @@ namespace Phossa\Shared\Exception;
 class NotFoundException extends \RuntimeException implements
     ExceptionInterface
 {
-
 }

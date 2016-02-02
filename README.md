@@ -1,7 +1,6 @@
 # phossa-shared
 [![Build Status](https://travis-ci.org/phossa/phossa-shared.svg)](https://travis-ci.org/phossa/phossa-shared.svg)
 [![HHVM Status](http://hhvm.h4cc.de/badge/phossa/phossa-shared.svg)](http://hhvm.h4cc.de/package/phossa/phossa-shared)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/phossa/phossa-shared/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/phossa/phossa-shared/badges/quality-score.png?b=master)
 [![Latest Stable Version](https://poser.pugx.org/phossa/phossa-shared/v/stable)](https://packagist.org/packages/phossa/phossa-shared)
 [![License](https://poser.pugx.org/phossa/phossa-shared/license)](https://packagist.org/packages/phossa/phossa-shared)
 
@@ -38,6 +37,7 @@ Features
   To extend phossa shared exceptions,
 
     ```php
+    <?php
     namespace Phossa\Cache\Exception;
 
     use \Phossa\Shared\Exception\BadMethodCallException as BMException;
@@ -45,6 +45,7 @@ Features
     class BadMethodCallException extends BMException
     {
     }
+
     ```
 
 - Messages
@@ -55,6 +56,7 @@ Features
   formatter maybe used to output message in different format.
 
     ```php
+    <?php
     namespace Phossa\Cache\Message;
 
     use Phossa\Shared\Message\MessageAbstract;
@@ -68,6 +70,7 @@ Features
             self::CACHE_MESSAGE         => '%s',
         ];
     }
+
     ```
 
 - Support PHP 5.4+, PHP 7.0+, HHVM

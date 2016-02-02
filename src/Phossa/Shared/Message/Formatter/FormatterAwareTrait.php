@@ -58,7 +58,9 @@ trait FormatterAwareTrait
      */
     public static function getFormatter()/*# : FormatterInterface */
     {
-        if (static::hasFormatter()) return self::$formatter;
+        if (static::hasFormatter()) {
+            return self::$formatter;
+        }
         throw new Exception\NotFoundException(
             sprintf('Message formatter not found')
         );

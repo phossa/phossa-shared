@@ -89,11 +89,15 @@ trait LoaderAwareTrait
     public static function hasLoader($search = true)
     {
         $class = get_called_class();
-        if (isset(self::$loaders[$class])) return $class;
+        if (isset(self::$loaders[$class])) {
+            return $class;
+        }
 
         if ($search) {
             do {
-                if (isset(self::$loaders[$class])) return $class;
+                if (isset(self::$loaders[$class])) {
+                    return $class;
+                }
             } while (($class = get_parent_class($class)));
         }
 
@@ -106,7 +110,7 @@ trait LoaderAwareTrait
     public static function unsetTheLoader(
         LoaderInterface $loader
     ) {
-        foreach(self::$loaders as $c => $l) {
+        foreach (self::$loaders as $c => $l) {
             if ($loader === $l) {
                 $c::unsetLoader();
             }

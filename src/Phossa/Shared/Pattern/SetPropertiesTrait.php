@@ -29,7 +29,7 @@ trait SetPropertiesTrait
      */
     protected function setProperties(array $properties = [])
     {
-        foreach($properties as $name => $value) {
+        foreach ($properties as $name => $value) {
             // set property
             if (property_exists($this, $name)) {
                 $this->$name = $value;

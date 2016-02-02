@@ -22,5 +22,4 @@ namespace Phossa\Shared\Exception;
 class LogicException extends \LogicException implements
     ExceptionInterface
 {
-
 }

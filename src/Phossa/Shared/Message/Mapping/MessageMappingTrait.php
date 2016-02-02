@@ -73,7 +73,9 @@ trait MessageMappingTrait
     public static function getMappings()/*# : array */
     {
         $class = get_called_class();
-        if (isset(self::$mappings[$class])) return self::$mappings[$class];
+        if (isset(self::$mappings[$class])) {
+            return self::$mappings[$class];
+        }
         return static::$messages;
     }
 
@@ -101,7 +103,9 @@ trait MessageMappingTrait
         /*# int */ $code
     )/*# : string */ {
         $mapping = static::getMappings();
-        if (isset($mapping[$code])) return $mapping[$code];
+        if (isset($mapping[$code])) {
+            return $mapping[$code];
+        }
         throw new Exception\NotFoundException(
             sprintf(
                 'Message not found for code %s in "%s"',

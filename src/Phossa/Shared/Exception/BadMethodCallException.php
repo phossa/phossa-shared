@@ -22,5 +22,4 @@ namespace Phossa\Shared\Exception;
 class BadMethodCallException extends \BadMethodCallException implements
     ExceptionInterface
 {
-
 }

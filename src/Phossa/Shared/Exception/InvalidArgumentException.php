@@ -22,5 +22,4 @@ namespace Phossa\Shared\Exception;
 class InvalidArgumentException extends \InvalidArgumentException implements
     ExceptionInterface
 {
-
 }

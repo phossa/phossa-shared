@@ -94,7 +94,7 @@ abstract class MessageAbstract extends StaticAbstract implements MessageInterfac
 
         // search message class hierachy upwards to find message template
         $class = get_called_class();
-        do  {
+        do {
             $template = 'message: %s';
 
             if ($class::hasMessage($code)) {
@@ -107,9 +107,10 @@ abstract class MessageAbstract extends StaticAbstract implements MessageInterfac
             }
 
             // last resort
-            if ($class === __CLASS__) break;
-
-        } while($class = get_parent_class($class));
+            if ($class === __CLASS__) {
+                break;
+            }
+        } while ($class = get_parent_class($class));
 
         // built the message with remaining arguments
         return static::buildMessage($template, $args);
@@ -133,7 +134,9 @@ abstract class MessageAbstract extends StaticAbstract implements MessageInterfac
         }
 
         // $class' mapping loaded already
-        if ($class::hasMappings()) return;
+        if ($class::hasMappings()) {
+            return;
+        }
 
         // load $class mapping
         if (($c = $class::hasLoader())) {
@@ -171,7 +174,7 @@ abstract class MessageAbstract extends StaticAbstract implements MessageInterfac
         // default is vsprintf()
         } else {
             // make sure arguments are all strings
-            array_walk($arguments, function(&$v) {
+            array_walk($arguments, function (&$v) {
                 $v = (string) $v;
             });
 

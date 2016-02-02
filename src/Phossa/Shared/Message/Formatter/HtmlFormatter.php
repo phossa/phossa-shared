@@ -51,8 +51,12 @@ class HtmlFormatter implements FormatterInterface
         /*# string */ $openTag = '',
         /*# string */ $closeTag = ''
     ) {
-        if ($openTag) $this->openTag = $openTag;
-        if ($closeTag) $this->closeTag = $closeTag;
+        if ($openTag) {
+            $this->openTag = $openTag;
+        }
+        if ($closeTag) {
+            $this->closeTag = $closeTag;
+        }
     }
 
     /**
@@ -63,7 +67,7 @@ class HtmlFormatter implements FormatterInterface
         array $arguments = []
     )/*# : string */ {
         // convert arguments to strings
-        array_walk($arguments, function(&$v) {
+        array_walk($arguments, function (&$v) {
             $v = (string) $v;
         });
 
@@ -72,7 +76,7 @@ class HtmlFormatter implements FormatterInterface
         $size  = sizeof($arguments);
         if ($count > $size) {
             $arguments = $arguments + array_fill($size, $count - $size, '');
-        } else if ($count < $size) {
+        } else {
             $template .= str_repeat(' %s', $size - $count);
         }
 
