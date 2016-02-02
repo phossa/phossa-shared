@@ -13,16 +13,16 @@ namespace Phossa\Shared\Message\Loader;
 use Phossa\Shared\Exception;
 
 /**
- * Implementation of LoaderCapableInterface
+ * Implementation of LoaderAwareInterface
  *
  * @trait
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     Phossa\Shared\Message\Loader\LoaderCapableInterface
+ * @see     Phossa\Shared\Message\Loader\LoaderAwareInterface
  * @version 1.0.0
  * @since   1.0.0 added
  */
-trait LoaderCapableTrait
+trait LoaderAwareTrait
 {
     /**
      * Message loaders pool, [ classname => $loader ]

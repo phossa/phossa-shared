@@ -53,26 +53,22 @@ use Phossa\Shared\Pattern\StaticAbstract;
  * @abstract
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     Phossa\Shared\Patter\StaticAbstract
- * @see     Phossa\Shared\Message\MessageInterface
- * @see     Phossa\Shared\Message\Loader\LoaderCapableInterface
- * @see     Phossa\Shared\Message\Mapping\MessageMappingInterface
- * @see     Phossa\Shared\Message\Formatter\FormatterCapableInterface
- * @see     Phossa\Shared\Message\Loader\LoaderCapableTrait
- * @see     Phossa\Shared\Message\Mapping\MessageMappingTrait
- * @see     Phossa\Shared\Message\Formatter\FormatterCapableTrait
+ * @see     \Phossa\Shared\Pattern\StaticAbstract
+ * @see     \Phossa\Shared\Message\MessageInterface
+ * @see     \Phossa\Shared\Message\Loader\LoaderAwareInterface
+ * @see     \Phossa\Shared\Message\Mapping\MessageMappingInterface
+ * @see     \Phossa\Shared\Message\Formatter\FormatterAwareInterface
+ * @see     \Phossa\Shared\Message\Loader\LoaderAwareTrait
+ * @see     \Phossa\Shared\Message\Mapping\MessageMappingTrait
+ * @see     \Phossa\Shared\Message\Formatter\FormatterAwareTrait
  * @version 1.0.0
  * @since   1.0.0 added
  */
-abstract class MessageAbstract extends StaticAbstract implements
-    MessageInterface,
-    Loader\LoaderCapableInterface,
-    Mapping\MessageMappingInterface,
-    Formatter\FormatterCapableInterface
+abstract class MessageAbstract extends StaticAbstract implements MessageInterface, Loader\LoaderAwareInterface, Mapping\MessageMappingInterface, Formatter\FormatterAwareInterface
 {
-    use Loader\LoaderCapableTrait,
+    use Loader\LoaderAwareTrait,
         Mapping\MessageMappingTrait,
-        Formatter\FormatterCapableTrait;
+        Formatter\FormatterAwareTrait;
 
     /**
      * {@inheritDoc}
@@ -99,6 +95,8 @@ abstract class MessageAbstract extends StaticAbstract implements
         // search message class hierachy upwards to find message template
         $class = get_called_class();
         do  {
+            $template = 'message: %s';
+
             if ($class::hasMessage($code)) {
                 // load message mapping
                 static::loadMappings($class);
@@ -109,10 +107,8 @@ abstract class MessageAbstract extends StaticAbstract implements
             }
 
             // last resort
-            if ($class === __CLASS__) {
-                $template = 'message: %s';
-                break;
-            }
+            if ($class === __CLASS__) break;
+
         } while($class = get_parent_class($class));
 
         // built the message with remaining arguments
@@ -184,7 +180,7 @@ abstract class MessageAbstract extends StaticAbstract implements
             $size  = sizeof($arguments);
             if ($count > $size) {
                 $arguments = $arguments + array_fill($size, $count - $size, '');
-            } else if ($count < $size) {
+            } else {
                 $template .= str_repeat(' %s', $size - $count);
             }
             return vsprintf($template, $arguments);

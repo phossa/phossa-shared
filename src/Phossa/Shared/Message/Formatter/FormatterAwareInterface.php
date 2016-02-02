@@ -18,11 +18,11 @@ namespace Phossa\Shared\Message\Formatter;
  * @interface
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     Phossa\Shared\Message\FormatterCapableTrait
+ * @see     \Phossa\Shared\Message\Formatter\FormatterAwareTrait
  * @version 1.0.0
  * @since   1.0.0 added
  */
-interface FormatterCapableInterface
+interface FormatterAwareInterface
 {
     /**
      * Set formatter

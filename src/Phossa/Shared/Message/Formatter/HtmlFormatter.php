@@ -15,7 +15,7 @@ namespace Phossa\Shared\Message\Formatter;
  *
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     Phossa\Shared\Message\Formatter\FormatterInterface
+ * @see     \Phossa\Shared\Message\Formatter\FormatterInterface
  * @version 1.0.0
  * @since   1.0.0 added
  */

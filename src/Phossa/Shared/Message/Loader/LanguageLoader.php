@@ -19,7 +19,7 @@ namespace Phossa\Shared\Message\Loader;
  *
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     Phossa\Shared\Message\Loader\LoaderInterface
+ * @see     \Phossa\Shared\Message\Loader\LoaderInterface
  * @version 1.0.0
  * @since   1.0.0 added
  */

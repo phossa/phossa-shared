@@ -18,7 +18,7 @@ use Phossa\Shared\Exception;
  * @trait
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     Phossa\Shared\Message\Mapping\MessageMappingInterface
+ * @see     \Phossa\Shared\Message\Mapping\MessageMappingInterface
  * @version 1.0.0
  * @since   1.0.0 added
  */

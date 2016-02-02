@@ -10,3 +10,5 @@ if (file_exists(dirname($basedir).'/autoload.php')) {
     # package autoloader
     $loader = require $basedir.'/vendor/autoload.php';
 }
+
+$loader->set('', dirname(__DIR__) . '/src/');

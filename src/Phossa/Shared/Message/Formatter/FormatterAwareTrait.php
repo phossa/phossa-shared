@@ -13,16 +13,16 @@ namespace Phossa\Shared\Message\Formatter;
 use Phossa\Shared\Exception;
 
 /**
- * Implementation of FormatterCapableInterface
+ * Implementation of FormatterAwareInterface
  *
  * @trait
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     Phossa\Shared\Message\FormatterCapableInterface
+ * @see     \Phossa\Shared\Message\Formatter\FormatterAwareInterface
  * @version 1.0.0
  * @since   1.0.0 added
  */
-trait FormatterCapableTrait
+trait FormatterAwareTrait
 {
     /**
      * Message formatter

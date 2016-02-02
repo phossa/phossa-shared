@@ -21,11 +21,11 @@ namespace Phossa\Shared\Message\Loader;
  * @interface
  * @package \Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @see     Phossa\Shared\Message\Loader\LoaderCapableTrait
+ * @see     \Phossa\Shared\Message\Loader\LoaderAwareTrait
  * @version 1.0.0
  * @since   1.0.0 added
  */
-interface LoaderCapableInterface
+interface LoaderAwareInterface
 {
     /**
      * Set loader for current message class (static bind)
