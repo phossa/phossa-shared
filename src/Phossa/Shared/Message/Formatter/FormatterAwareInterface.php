@@ -1,10 +1,15 @@
 <?php
-/*
+/**
  * Phossa Project
  *
- * @see         http://www.phossa.com/
- * @copyright   Copyright (c) 2015 phossa.com
- * @license     http://mit-license.org/ MIT License
+ * PHP version 5.4
+ *
+ * @category  Package
+ * @package   Phossa\Shared
+ * @author    Hong Zhang <phossa@126.com>
+ * @copyright 2015 phossa.com
+ * @license   http://mit-license.org/ MIT License
+ * @link      http://www.phossa.com/
  */
 /*# declare(strict_types=1); */
 
@@ -16,7 +21,7 @@ namespace Phossa\Shared\Message\Formatter;
  * Formatter is used to format the result message.
  *
  * @interface
- * @package \Phossa\Shared
+ * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
  * @see     \Phossa\Shared\Message\Formatter\FormatterAwareTrait
  * @version 1.0.0
@@ -40,7 +45,6 @@ interface FormatterAwareInterface
     /**
      * Unset formatter, and use the default
      *
-     * @param  void
      * @return void
      * @access public
      * @static
@@ -51,7 +55,6 @@ interface FormatterAwareInterface
     /**
      * Get formatter
      *
-     * @param  void
      * @return FormatterInterface
      * @throws Exception\NotFoundException if formatter not set
      * @access public
@@ -63,7 +66,6 @@ interface FormatterAwareInterface
     /**
      * Check formatter existanse
      *
-     * @param  void
      * @return bool
      * @access public
      * @static

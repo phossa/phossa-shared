@@ -1,10 +1,15 @@
 <?php
-/*
+/**
  * Phossa Project
  *
- * @see         http://www.phossa.com/
- * @copyright   Copyright (c) 2015 phossa.com
- * @license     http://mit-license.org/ MIT License
+ * PHP version 5.4
+ *
+ * @category  Package
+ * @package   Phossa\Shared
+ * @author    Hong Zhang <phossa@126.com>
+ * @copyright 2015 phossa.com
+ * @license   http://mit-license.org/ MIT License
+ * @link      http://www.phossa.com/
  */
 /*# declare(strict_types=1); */
 
@@ -16,7 +21,7 @@ use Phossa\Shared\Exception;
  * ShareableTrait
  *
  * @trait
- * @package \Phossa\Shared
+ * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
  * @version 1.0.4
  * @since   1.0.4 added
@@ -64,7 +69,6 @@ trait ShareableTrait
     /**
      * __clone() is executed only on the cloned copy
      *
-     * @param  void
      * @access public
      */
     public function __clone()
@@ -74,7 +78,6 @@ trait ShareableTrait
     /**
      * prevent shareable copy from being serialized.
      *
-     * @param  void
      * @throws Exception\BadMethodCallException
      * @access public
      */

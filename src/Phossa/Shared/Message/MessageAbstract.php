@@ -1,10 +1,15 @@
 <?php
-/*
+/**
  * Phossa Project
  *
- * @see         http://www.phossa.com/
- * @copyright   Copyright (c) 2015 phossa.com
- * @license     http://mit-license.org/ MIT License
+ * PHP version 5.4
+ *
+ * @category  Package
+ * @package   Phossa\Shared
+ * @author    Hong Zhang <phossa@126.com>
+ * @copyright 2015 phossa.com
+ * @license   http://mit-license.org/ MIT License
+ * @link      http://www.phossa.com/
  */
 /*# declare(strict_types=1); */
 
@@ -51,7 +56,7 @@ use Phossa\Shared\Pattern\StaticAbstract;
  *   </code>
  *
  * @abstract
- * @package \Phossa\Shared
+ * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
  * @see     \Phossa\Shared\Pattern\StaticAbstract
  * @see     \Phossa\Shared\Message\MessageInterface
@@ -64,7 +69,11 @@ use Phossa\Shared\Pattern\StaticAbstract;
  * @version 1.0.0
  * @since   1.0.0 added
  */
-abstract class MessageAbstract extends StaticAbstract implements MessageInterface, Loader\LoaderAwareInterface, Mapping\MessageMappingInterface, Formatter\FormatterAwareInterface
+abstract class MessageAbstract extends StaticAbstract implements
+    MessageInterface,
+    Loader\LoaderAwareInterface,
+    Mapping\MessageMappingInterface,
+    Formatter\FormatterAwareInterface
 {
     use Loader\LoaderAwareTrait,
         Mapping\MessageMappingTrait,
@@ -73,7 +82,7 @@ abstract class MessageAbstract extends StaticAbstract implements MessageInterfac
     /**
      * {@inheritDoc}
      */
-    public static function get(/* ... */)/*# : string */
+    public static function get()/*# : string */
     {
         // process arguments
         $args = func_get_args();
@@ -139,10 +148,10 @@ abstract class MessageAbstract extends StaticAbstract implements MessageInterfac
         }
 
         // load $class mapping
-        if (($c = $class::hasLoader())) {
+        if (($loadedClass = $class::hasLoader())) {
             // loader found
             $class::setMappings(
-                $c::getLoader()->loadMessages($class)
+                $loadedClass::getLoader()->loadMessages($class)
             );
         } else {
             // no loader found
@@ -174,8 +183,8 @@ abstract class MessageAbstract extends StaticAbstract implements MessageInterfac
         // default is vsprintf()
         } else {
             // make sure arguments are all strings
-            array_walk($arguments, function (&$v) {
-                $v = (string) $v;
+            array_walk($arguments, function (&$value) {
+                $value = (string) $value;
             });
 
             // make sure '%s' count in $template is same as size of $arguments

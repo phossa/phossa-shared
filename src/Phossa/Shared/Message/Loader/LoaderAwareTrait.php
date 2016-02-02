@@ -1,10 +1,15 @@
 <?php
-/*
+/**
  * Phossa Project
  *
- * @see         http://www.phossa.com/
- * @copyright   Copyright (c) 2015 phossa.com
- * @license     http://mit-license.org/ MIT License
+ * PHP version 5.4
+ *
+ * @category  Package
+ * @package   Phossa\Shared
+ * @author    Hong Zhang <phossa@126.com>
+ * @copyright 2015 phossa.com
+ * @license   http://mit-license.org/ MIT License
+ * @link      http://www.phossa.com/
  */
 /*# declare(strict_types=1); */
 
@@ -16,7 +21,7 @@ use Phossa\Shared\Exception;
  * Implementation of LoaderAwareInterface
  *
  * @trait
- * @package \Phossa\Shared
+ * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
  * @see     Phossa\Shared\Message\Loader\LoaderAwareInterface
  * @version 1.0.0
@@ -86,8 +91,9 @@ trait LoaderAwareTrait
     /**
      * {@inhertitdoc}
      */
-    public static function hasLoader($search = true)
-    {
+    public static function hasLoader(
+        /*# bool */ $search = true
+    ) {
         $class = get_called_class();
         if (isset(self::$loaders[$class])) {
             return $class;
@@ -133,15 +139,15 @@ trait LoaderAwareTrait
      * @access protected
      * @static
      */
-    protected static function setStatus($status = true)
-    {
+    protected static function setStatus(
+        /*# bool */ $status = true
+    ) {
         self::$updated = $status;
     }
 
     /**
      * Get updated indicator
      *
-     * @param  void
      * @return bool
      * @access protected
      * @static

@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Phossa Project
  *
  * @see         http://www.phossa.com/

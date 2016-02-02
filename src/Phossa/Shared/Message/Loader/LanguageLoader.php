@@ -1,10 +1,15 @@
 <?php
-/*
+/**
  * Phossa Project
  *
- * @see         http://www.phossa.com/
- * @copyright   Copyright (c) 2015 phossa.com
- * @license     http://mit-license.org/ MIT License
+ * PHP version 5.4
+ *
+ * @category  Package
+ * @package   Phossa\Shared
+ * @author    Hong Zhang <phossa@126.com>
+ * @copyright 2015 phossa.com
+ * @license   http://mit-license.org/ MIT License
+ * @link      http://www.phossa.com/
  */
 /*# declare(strict_types=1); */
 
@@ -17,7 +22,7 @@ namespace Phossa\Shared\Message\Loader;
  * for the language file (YourMessage.LANG.php) in the same directory of the
  * message class file.
  *
- * @package \Phossa\Shared
+ * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
  * @see     \Phossa\Shared\Message\Loader\LoaderInterface
  * @version 1.0.0
@@ -62,7 +67,6 @@ class LanguageLoader implements LoaderInterface
     /**
      * Get language
      *
-     * @param  void
      * @return string
      * @access public
      * @api

@@ -1,10 +1,15 @@
 <?php
-/*
+/**
  * Phossa Project
  *
- * @see         http://www.phossa.com/
- * @copyright   Copyright (c) 2015 phossa.com
- * @license     http://mit-license.org/ MIT License
+ * PHP version 5.4
+ *
+ * @category  Package
+ * @package   Phossa\Shared
+ * @author    Hong Zhang <phossa@126.com>
+ * @copyright 2015 phossa.com
+ * @license   http://mit-license.org/ MIT License
+ * @link      http://www.phossa.com/
  */
 /*# declare(strict_types=1); */
 
@@ -13,7 +18,7 @@ namespace Phossa\Shared\Message\Formatter;
 /**
  * Simple HTML formatter for message package
  *
- * @package \Phossa\Shared
+ * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
  * @see     \Phossa\Shared\Message\Formatter\FormatterInterface
  * @version 1.0.0
@@ -67,8 +72,8 @@ class HtmlFormatter implements FormatterInterface
         array $arguments = []
     )/*# : string */ {
         // convert arguments to strings
-        array_walk($arguments, function (&$v) {
-            $v = (string) $v;
+        array_walk($arguments, function (&$value) {
+            $value = (string) $value;
         });
 
         // make sure '%s' count in $template is same as size of $arguments

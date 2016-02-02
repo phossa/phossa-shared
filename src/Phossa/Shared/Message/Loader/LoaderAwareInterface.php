@@ -1,10 +1,15 @@
 <?php
-/*
+/**
  * Phossa Project
  *
- * @see         http://www.phossa.com/
- * @copyright   Copyright (c) 2015 phossa.com
- * @license     http://mit-license.org/ MIT License
+ * PHP version 5.4
+ *
+ * @category  Package
+ * @package   Phossa\Shared
+ * @author    Hong Zhang <phossa@126.com>
+ * @copyright 2015 phossa.com
+ * @license   http://mit-license.org/ MIT License
+ * @link      http://www.phossa.com/
  */
 /*# declare(strict_types=1); */
 
@@ -19,7 +24,7 @@ namespace Phossa\Shared\Message\Loader;
  * - Different message class may use different loader.
  *
  * @interface
- * @package \Phossa\Shared
+ * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
  * @see     \Phossa\Shared\Message\Loader\LoaderAwareTrait
  * @version 1.0.0
@@ -43,7 +48,6 @@ interface LoaderAwareInterface
     /**
      * Unset loader for current message class (static bind)
      *
-     * @param  void
      * @return void
      * @access public
      * @static
@@ -54,7 +58,6 @@ interface LoaderAwareInterface
     /**
      * Get loader for current message class (static bind)
      *
-     * @param  void
      * @return LoaderInterface
      * @throws Exception\NotFoundException
      * @access public
@@ -75,7 +78,9 @@ interface LoaderAwareInterface
      * @static
      * @api
      */
-    public static function hasLoader($search = true);
+    public static function hasLoader(
+        /*# : bool */ $search = true
+    );
 
     /**
      * Unset loader (unset with all classes using this loader)
@@ -93,7 +98,6 @@ interface LoaderAwareInterface
     /**
      * Get all loaders in [ classname => $loader ] mapping array
      *
-     * @param  void
      * @return LoaderInterface[]
      * @access public
      * @static

@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Phossa Project
  *
  * @see         http://www.phossa.com/
@@ -44,7 +44,6 @@ interface MessageMappingInterface
     /**
      * Check current class' message mapping array
      *
-     * @param  void
      * @return bool
      * @access public
      * @static
@@ -54,7 +53,6 @@ interface MessageMappingInterface
     /**
      * Get current class' message mapping array
      *
-     * @param  void
      * @return array
      * @access public
      * @static
@@ -64,7 +62,6 @@ interface MessageMappingInterface
     /**
      * Reset to initial mappings status
      *
-     * @param  void
      * @return void
      * @access public
      * @static
