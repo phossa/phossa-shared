@@ -37,7 +37,6 @@ trait StaticTrait
      */
     final private function __construct()
     {
-        // nothing here
     }
 
     /**
@@ -49,6 +48,5 @@ trait StaticTrait
      */
     final private function __clone()
     {
-        // nothing here
     }
 }

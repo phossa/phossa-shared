@@ -2,9 +2,14 @@
 /**
  * Phossa Project
  *
- * @see         http://www.phossa.com/
- * @copyright   Copyright (c) 2015 phossa.com
- * @license     http://mit-license.org/ MIT License
+ * PHP version 5.4
+ *
+ * @category  Package
+ * @package   Phossa\Shared
+ * @author    Hong Zhang <phossa@126.com>
+ * @copyright 2015 phossa.com
+ * @license   http://mit-license.org/ MIT License
+ * @link      http://www.phossa.com/
  */
 /*# declare(strict_types=1); */
 
@@ -14,7 +19,7 @@ namespace Phossa\Shared\Message\Mapping;
  * Managing the message mappings
  *
  * @interface
- * @package \Phossa\Shared
+ * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
  * @see     \Phossa\Shared\Message\Mapping\MessageManagerTrait
  * @version 1.0.0
@@ -37,9 +42,7 @@ interface MessageMappingInterface
      * @access public
      * @static
      */
-    public static function setMappings(
-        array $messages
-    );
+    public static function setMappings(array $messages);
 
     /**
      * Check current class' message mapping array
@@ -76,9 +79,7 @@ interface MessageMappingInterface
      * @access public
      * @static
      */
-    public static function hasMessage(
-        /*# int */ $code
-    )/*# : bool */;
+    public static function hasMessage(/*# int */ $code)/*# : bool */;
 
     /**
      * Get message template from current class' message mapping
@@ -89,7 +90,5 @@ interface MessageMappingInterface
      * @access public
      * @static
      */
-    public static function getMessage(
-        /*# int */ $code
-    )/*# : string */;
+    public static function getMessage(/*# int */ $code)/*# : string */;
 }

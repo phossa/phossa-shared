@@ -15,6 +15,8 @@
 
 namespace Phossa\Shared\Pattern;
 
+use Phossa\Shared\Exception\LogicException;
+
 /**
  * SingletonTrait
  *
@@ -64,21 +66,23 @@ trait SingletonTrait
      * prevent from being cloned.
      *
      * @return void
-     * @access private
+     * @access public
      * @final
      */
-    final private function __clone()
+    final public function __clone()
     {
+        throw new LogicException('SINGLETON CAN NOT BE CLONED');
     }
 
     /**
      * prevent from being unserialized.
      *
      * @return void
-     * @access private
+     * @access public
      * @final
      */
-    final private function __wakeup()
+    final public function __wakeup()
     {
+        throw new LogicException('SINGLETON CAN NOT BE WAKEUP');
     }
 }

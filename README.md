@@ -12,6 +12,7 @@ packages.
 
 Installation
 ---
+
 Install via the `composer` utility.
 
 ```
@@ -31,29 +32,31 @@ or add the following lines to your `composer.json`
 Features
 ---
 
-- Exceptions
+- Exception
 
-  All phossa related packages implements `Phossa\Shared\Exception\ExceptionInterface`.
-  To extend phossa shared exceptions,
+  All phossa packages implements `Phossa\Shared\Exception\ExceptionInterface`.
+  To extend phossa exceptions,
 
     ```php
     <?php
     namespace Phossa\Cache\Exception;
 
-    use \Phossa\Shared\Exception\BadMethodCallException as BMException;
-
-    class BadMethodCallException extends BMException
+    class BadMethodCallException extends
+        \Phossa\Shared\Exception\BadMethodCallException
     {
     }
 
     ```
 
-- Messages
+- Message
 
-  `Message` class is used to convert message code into human-readable messages.
-  Any subclass *MUST* define its own property `$messages`. Message loader maybe
-  used to load different message mapping such as language files. Message
-  formatter maybe used to output message in different format.
+  `MessageAbstract` class is the base class for all `Message` classes for all
+  phossa packages.
+
+  - Define your own `Message` class
+
+  `Message` class is used to convert message code into human-readable messages,
+  and *MUST* define its own property `$messages`.
 
     ```php
     <?php
@@ -63,14 +66,181 @@ Features
 
     class Message extends MessageAbstract
     {
-        // use current year-month-date-hour-minute
+        // use current year_month_date_hour_minute
         const CACHE_MESSAGE         = 1512220901;
 
         protected static $messages = [
             self::CACHE_MESSAGE         => 'cache %s',
         ];
     }
+    ```
 
+  - `Message` class usage
+
+  Usually only `Message::get()` and `Message::CONST_VALUE` are used.
+
+    ```php
+    <?php
+    namespace Phossa\Cache;
+
+    use Phossa\Cache\Message\Message;
+
+    class CachePool extends CachePoolInterface
+    {
+        ...
+        public function someFunction()
+        {
+            ...
+
+            // throw exception
+            throw new Exception\RuntimeException(
+                Message::get(Message::CACHE_MESSAGE, 'driver failed'),
+                Message::CACHE_MESSAGE
+            );
+        }
+    }
+    ```
+
+  - Message loader
+
+  Used for loading different code to message mapping such as language files.
+
+    ```php
+    namespace Phossa\Cache;
+
+    use Phossa\Shared\Message\Loader\LanguageLoader;
+
+    // set language to 'zh_CN'
+    $langLoader = new LanguageLoader('zh_CN');
+
+    // will load local `Message\Message.zh_CN.php` language file
+    Message\Message::setLoader($langLoader);
+
+    // print message in chinese
+    echo Message\Message::get(
+        Message::CACHE_MESSAGE, get_class($object)
+    );
+    ```
+
+  - Message formatter
+
+  Used for formatting messages for different devices such as HTML page etc.
+
+    ```php
+    namespace Phossa\Cache;
+
+    use Phossa\Shared\Message\Formatter\HtmlFormatter;
+
+    // format message as HTML
+    $formatter = new HtmlFormatter();
+
+    Message\Message::setFormatter($formatter);
+
+    // print as HTML
+    echo Message\Message::get(
+        Message::CACHE_MESSAGE, get_class($object)
+    );
+    ```
+
+- Pattern
+
+  Commonly used pattern in `Interface` or `Trait`
+
+  - `StaticTrait`
+
+  Used to be included in a static class which can not extends `StaticClass`
+
+    ```php
+    <?php
+    namespace Phossa\MyPackage;
+
+    class MyStaticClass extends SomeClass
+    {
+        use \Phossa\Shared\Pattern\StaticTrait;
+        ...
+    }
+    ```
+
+  - `StaticAbstract`
+
+  Used to be extended by other classes.
+
+    ```php
+    <?php
+    namespace Phossa\MyPackage;
+
+    class MyStaticClass extends \Phossa\Shared\Pattern\StaticAbstract
+    {
+        ...
+    }
+    ```
+
+  - `SingletonInterface` and `SingletonTrait`
+
+  Used to be included in a singleton class.
+
+    ```php
+    <?php
+    namespace Phossa\MyPackage;
+
+    class MySingletonClass extends SomeClass
+    {
+        use \Phossa\Shared\Pattern\SingletonTrait;
+        ...
+    }
+    ```
+
+  Usage,
+
+    ```php
+    $obj =  MySingletonClass::getInstance();
+    ```
+
+  This singleton has a feature which allows singleton class to extended
+
+    ```php
+    <?php
+    namespace Phossa\MyPackage;
+
+    class MyNewSingletonClass extends MySingletonClass
+    {
+        ...
+    }
+    ```
+
+  - `ShareableInterface` and `ShareableTrait`
+
+  Multiple copies of objects are allowed for `Shareable` but only one global
+  copy. Such as global event manager and lots of local event managers.
+
+    ```php
+    <?php
+    namespace Phossa\Event;
+
+    use Phossa\Shared\Pattern\ShareableInterface;
+
+    class EventManager implements ShareableInterface
+    {
+        use \Phossa\Shared\Pattern\ShareableTrait;
+        ...
+    }
+    ```
+
+  Usage,
+
+    ```php
+    // global event manager instance
+    $globalEM = EventManager::getShareable();
+
+    // local event manager
+    $localEM  = EventManager();
+
+    // this EM global ?
+    if ($globalEM->isShareable()) {
+        ...
+    } else {
+        ...
+    }
     ```
 
 - Support PHP 5.4+, PHP 7.0+, HHVM

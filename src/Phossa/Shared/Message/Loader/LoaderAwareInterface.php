@@ -46,7 +46,7 @@ interface LoaderAwareInterface
     );
 
     /**
-     * Unset loader for current message class (static bind)
+     * Unset loader for CURRENT message class (static bind)
      *
      * @return void
      * @access public
@@ -83,7 +83,7 @@ interface LoaderAwareInterface
     );
 
     /**
-     * Unset loader (unset with all classes using this loader)
+     * Unset loader (unset with ALL classes using this loader)
      *
      * @param  LoaderInterface $loader
      * @return void
