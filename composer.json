@@ -3,7 +3,7 @@
     "version": "1.0.7",
     "license": "MIT",
     "type": "library",
-    "description": "The shared package for all other phossa packages",
+    "description": "The shared package for other phossa packages",
     "keywords": ["phossa", "framework"],
     "homepage": "https://github.com/phossa/phossa-shared",
     "authors": [

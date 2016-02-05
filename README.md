@@ -7,7 +7,7 @@
 Introduction
 ---
 
-Phossa-shared is the shared package required by all other phossa packages.
+Phossa-shared is the shared package required by other phossa packages.
 
 Installation
 ---
@@ -33,23 +33,23 @@ Features
 
 - **Exception**
 
-  All phossa packages implement `Phossa\Shared\Exception\ExceptionInterface`.
+  All phossa exceptions implement `Phossa\Shared\Exception\ExceptionInterface`.
   To extend phossa exceptions,
 
-    ```php
-    <?php
-    namespace Phossa\Cache\Exception;
+  ```php
+  <?php
+  namespace Phossa\Cache\Exception;
 
-    class BadMethodCallException extends
-        \Phossa\Shared\Exception\BadMethodCallException
-    {
-    }
+  class BadMethodCallException extends
+      \Phossa\Shared\Exception\BadMethodCallException
+  {
+  }
 
-    ```
+  ```
 
 - **Message**
 
-  `MessageAbstract` class is the base class for all `Message` classes for
+  `MessageAbstract` class is the base class for all `Message` classes in all
   phossa packages.
 
   - Define package related `Message` class
@@ -156,15 +156,15 @@ Features
 
     Used to be extended by other classes.
 
-        ```php
-        <?php
-        namespace Phossa\MyPackage;
+    ```php
+    <?php
+    namespace Phossa\MyPackage;
 
-        class MyStaticClass extends \Phossa\Shared\Pattern\StaticAbstract
-        {
-            ...
-        }
-        ```
+    class MyStaticClass extends \Phossa\Shared\Pattern\StaticAbstract
+    {
+        ...
+    }
+    ```
 
   - `SingletonInterface` and `SingletonTrait`
 
