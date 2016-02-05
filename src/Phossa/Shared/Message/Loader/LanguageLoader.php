@@ -34,7 +34,6 @@ class LanguageLoader implements LoaderInterface
      * language setting. Use locale codes
      *
      * @var    string
-     * @type   string
      * @access protected
      */
     protected $language = '';

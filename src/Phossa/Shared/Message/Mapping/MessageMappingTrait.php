@@ -35,7 +35,6 @@ trait MessageMappingTrait
      * This property HAS TO BE redefined for each descendant message class
      *
      * @var    string[]
-     * @type   string[]
      * @access protected
      * @static
      */
@@ -45,7 +44,6 @@ trait MessageMappingTrait
      * Message mapping cache
      *
      * @var    array
-     * @type   array
      * @access private
      * @static
      */

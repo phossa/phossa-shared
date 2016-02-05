@@ -33,7 +33,6 @@ trait LoaderAwareTrait
      * Message loaders pool, [ classname => $loader ]
      *
      * @var    LoaderInterface[]
-     * @type   LoaderInterface[]
      * @access private
      * @static
      */
@@ -43,7 +42,6 @@ trait LoaderAwareTrait
      * loader update indicator
      *
      * @var    bool
-     * @type   bool
      * @access private
      * @static
      */

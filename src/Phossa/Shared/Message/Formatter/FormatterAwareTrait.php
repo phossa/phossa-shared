@@ -35,7 +35,6 @@ trait FormatterAwareTrait
      * Formatter is shared by all descendant message classes.
      *
      * @var    FormatterInterface
-     * @type   FormatterInterface
      * @access private
      * @static
      */

@@ -30,7 +30,6 @@ class HtmlFormatter implements FormatterInterface
      * opening tag
      *
      * @var    string
-     * @type   string
      * @access protected
      */
     protected $openTag  = '<span class="message">';
@@ -39,7 +38,6 @@ class HtmlFormatter implements FormatterInterface
      * closing tag
      *
      * @var    string
-     * @type   string
      * @access protected
      */
     protected $closeTag = '</span>';
