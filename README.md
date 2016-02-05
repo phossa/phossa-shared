@@ -7,8 +7,7 @@
 Introduction
 ---
 
-Phossa-shared is the shared (common) package required by all other phossa
-packages.
+Phossa-shared is the shared package required by all other phossa packages.
 
 Installation
 ---
@@ -32,9 +31,9 @@ or add the following lines to your `composer.json`
 Features
 ---
 
-- Exception
+- **Exception**
 
-  All phossa packages implements `Phossa\Shared\Exception\ExceptionInterface`.
+  All phossa packages implement `Phossa\Shared\Exception\ExceptionInterface`.
   To extend phossa exceptions,
 
     ```php
@@ -48,15 +47,15 @@ Features
 
     ```
 
-- Message
+- **Message**
 
-  `MessageAbstract` class is the base class for all `Message` classes for all
+  `MessageAbstract` class is the base class for all `Message` classes for
   phossa packages.
 
-  - Define your own `Message` class
+  - Define package related `Message` class
 
-  `Message` class is used to convert message code into human-readable messages,
-  and *MUST* define its own property `$messages`.
+    `Message` class is used to convert message code into human-readable
+    messages, and *MUST* define its own property `$messages`.
 
     ```php
     <?php
@@ -67,43 +66,35 @@ Features
     class Message extends MessageAbstract
     {
         // use current year_month_date_hour_minute
-        const CACHE_MESSAGE         = 1512220901;
+        const CACHE_MESSAGE     = 1512220901;
+
+        // driver failed
+        const CACHE_DRIVER_FAIL = 1512220902;
 
         protected static $messages = [
-            self::CACHE_MESSAGE         => 'cache %s',
+            self::CACHE_MESSAGE      => 'cache %s',
+            self::CACHE_DRIVER_FAILT => 'cache driver %s failed',
         ];
     }
     ```
 
   - `Message` class usage
 
-  Usually only `Message::get()` and `Message::CONST_VALUE` are used.
+    Usually only `Message::get()` and `Message::CONST_VALUE` are used.
 
     ```php
-    <?php
-    namespace Phossa\Cache;
-
     use Phossa\Cache\Message\Message;
-
-    class CachePool extends CachePoolInterface
-    {
-        ...
-        public function someFunction()
-        {
-            ...
-
-            // throw exception
-            throw new Exception\RuntimeException(
-                Message::get(Message::CACHE_MESSAGE, 'driver failed'),
-                Message::CACHE_MESSAGE
-            );
-        }
-    }
+    ...
+    // throw exception
+    throw new Exception\RuntimeException(
+        Message::get(Message::CACHE_DRIVER_FAIL, get_class($driver)),
+        Message::CACHE_DRIVER_FAIL
+    );
     ```
 
   - Message loader
 
-  Used for loading different code to message mapping such as language files.
+    Used for loading different code to message mapping such as language files.
 
     ```php
     namespace Phossa\Cache;
@@ -124,7 +115,7 @@ Features
 
   - Message formatter
 
-  Used for formatting messages for different devices such as HTML page etc.
+    Used for formatting messages for different devices such as HTML page.
 
     ```php
     namespace Phossa\Cache;
@@ -142,13 +133,13 @@ Features
     );
     ```
 
-- Pattern
+- **Pattern**
 
-  Commonly used pattern in `Interface` or `Trait`
+  Commonly used patterns in `Interface` or `Trait`
 
   - `StaticTrait`
 
-  Used to be included in a static class which can not extends `StaticClass`
+    Used to be included in a static class which can not extends `StaticAbstract`
 
     ```php
     <?php
@@ -163,21 +154,21 @@ Features
 
   - `StaticAbstract`
 
-  Used to be extended by other classes.
+    Used to be extended by other classes.
 
-    ```php
-    <?php
-    namespace Phossa\MyPackage;
+        ```php
+        <?php
+        namespace Phossa\MyPackage;
 
-    class MyStaticClass extends \Phossa\Shared\Pattern\StaticAbstract
-    {
-        ...
-    }
-    ```
+        class MyStaticClass extends \Phossa\Shared\Pattern\StaticAbstract
+        {
+            ...
+        }
+        ```
 
   - `SingletonInterface` and `SingletonTrait`
 
-  Used to be included in a singleton class.
+    Used to be included in a singleton class.
 
     ```php
     <?php
@@ -190,13 +181,14 @@ Features
     }
     ```
 
-  Usage,
+    Usage,
 
     ```php
     $obj =  MySingletonClass::getInstance();
     ```
 
-  This singleton has a feature which allows singleton class to extended
+    This singleton implementation has a feature which allows singleton class
+    to extended.
 
     ```php
     <?php
@@ -210,8 +202,8 @@ Features
 
   - `ShareableInterface` and `ShareableTrait`
 
-  Multiple copies of objects are allowed for `Shareable` but only one global
-  copy. Such as global event manager and lots of local event managers.
+    Multiple instances are allowed for `Shareable`, but only one global copy.
+    Such as global event manager and lots of local event managers.
 
     ```php
     <?php
@@ -226,14 +218,14 @@ Features
     }
     ```
 
-  Usage,
+    Usage,
 
     ```php
     // global event manager instance
     $globalEM = EventManager::getShareable();
 
     // local event manager
-    $localEM  = EventManager();
+    $localEM  = new EventManager();
 
     // this EM global ?
     if ($globalEM->isShareable()) {
