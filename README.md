@@ -239,6 +239,8 @@ Features
 
 - PHP7 ready for return type declarations and argument type declarations.
 
+- PSR-1, PSR-2, PSR-4 compliant.
+
 - Decoupled packages can be used seperately without the framework.
 
 Version
