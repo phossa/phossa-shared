@@ -23,8 +23,9 @@ use Phossa\Shared\Exception;
  * @trait
  * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @version 1.0.4
+ * @version 1.0.8
  * @since   1.0.4 added
+ * @since   1.0.8 rename getShareable() to getInstance()
  */
 trait ShareableTrait
 {
@@ -49,7 +50,7 @@ trait ShareableTrait
     /**
      * {@inheritDoc}
      */
-    final public static function getShareable()/*# : ShareableInterface */
+    final public static function getInstance()/*# : ShareableInterface */
     {
         $class = get_called_class();
         if (!isset(self::$shareables[$class])) {
@@ -63,7 +64,7 @@ trait ShareableTrait
      */
     public function isShareable()/*# : bool */
     {
-        return $this === static::getShareable();
+        return $this === static::getInstance();
     }
 
     /**

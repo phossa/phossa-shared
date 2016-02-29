@@ -71,7 +71,8 @@ class HtmlFormatter implements FormatterInterface
     )/*# : string */ {
         // convert arguments to strings
         array_walk($arguments, function (&$value) {
-            $value = (string) $value;
+            $value = is_scalar($value) ? (string) $value :
+                    substr(print_r($value, true), 0, 50);
         });
 
         // make sure '%s' count in $template is same as size of $arguments

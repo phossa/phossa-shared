@@ -21,7 +21,7 @@ namespace Phossa\Shared\Pattern;
  * @trait
  * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @version 1.0.0
+ * @version 1.0.3
  * @since   1.0.3 added
  */
 trait SetPropertiesTrait

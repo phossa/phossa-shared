@@ -59,14 +59,14 @@ use Phossa\Shared\Pattern\StaticAbstract;
  * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
  * @see     \Phossa\Shared\Pattern\StaticAbstract
- * @see     \Phossa\Shared\Message\MessageInterface
- * @see     \Phossa\Shared\Message\Loader\LoaderAwareInterface
- * @see     \Phossa\Shared\Message\Mapping\MessageMappingInterface
- * @see     \Phossa\Shared\Message\Formatter\FormatterAwareInterface
- * @see     \Phossa\Shared\Message\Loader\LoaderAwareTrait
- * @see     \Phossa\Shared\Message\Mapping\MessageMappingTrait
- * @see     \Phossa\Shared\Message\Formatter\FormatterAwareTrait
- * @version 1.0.0
+ * @see     MessageInterface
+ * @see     Loader\LoaderAwareInterface
+ * @see     Mapping\MessageMappingInterface
+ * @see     Formatter\FormatterAwareInterface
+ * @see     Loader\LoaderAwareTrait
+ * @see     Mapping\MessageMappingTrait
+ * @see     Formatter\FormatterAwareTrait
+ * @version 1.0.8
  * @since   1.0.0 added
  */
 abstract class MessageAbstract extends StaticAbstract implements
@@ -93,7 +93,7 @@ abstract class MessageAbstract extends StaticAbstract implements
             $code = array_shift($args);
             // first argument is not numeric
             if (!is_numeric($code)) {
-                return (string) $code;
+                return is_scalar($code) ? (string) $code : print_r($code, true);
 
             // first argument is numeric
             } else {
@@ -183,7 +183,8 @@ abstract class MessageAbstract extends StaticAbstract implements
         } else {
             // make sure arguments are all strings
             array_walk($arguments, function (&$value) {
-                $value = (string) $value;
+                $value = is_scalar($value) ? (string) $value :
+                    substr(print_r($value, true), 0, 50);
             });
 
             // make sure '%s' count in $template is same as size of $arguments

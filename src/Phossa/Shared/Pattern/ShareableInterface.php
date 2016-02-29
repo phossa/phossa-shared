@@ -19,13 +19,14 @@ namespace Phossa\Shared\Pattern;
  * ShareableInterface
  *
  * Instances can be generated with `new`, but a singleton copy can only be
- * get thru `getShareable()`
+ * get thru `getInstance()`
  *
  * @interface
  * @package Phossa\Shared
  * @author  Hong Zhang <phossa@126.com>
- * @version 1.0.4
+ * @version 1.0.8
  * @since   1.0.4 added
+ * @since   1.0.8 rename getShareable() to getInstance()
  */
 interface ShareableInterface
 {
@@ -38,14 +39,14 @@ interface ShareableInterface
     public function __construct();
 
     /**
-     * Get the singleton instance.
+     * Get the global instance.
      *
      * @return ShareableInterface
      * @access public
      * @static
      * @api
      */
-    public static function getShareable()/*# : ShareableInterface */;
+    public static function getInstance()/*# : ShareableInterface */;
 
     /**
      * Is this the shareable(singleton) copy
