@@ -119,7 +119,8 @@ abstract class MessageAbstract extends StaticAbstract implements
             if ($class === __CLASS__) {
                 break;
             }
-        } while ($class = get_parent_class($class));
+            $class = get_parent_class($class);
+        } while ($class);
 
         // built the message with remaining arguments
         return static::buildMessage($template, $args);
@@ -147,7 +148,8 @@ abstract class MessageAbstract extends StaticAbstract implements
         }
 
         // load $class mapping
-        if (($loadedClass = $class::hasLoader())) {
+        $loadedClass = $class::hasLoader();
+        if ($loadedClass) {
             // loader found
             $class::setMappings(
                 $loadedClass::getLoader()->loadMessages($class)

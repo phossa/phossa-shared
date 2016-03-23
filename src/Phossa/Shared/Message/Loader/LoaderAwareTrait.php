@@ -102,7 +102,8 @@ trait LoaderAwareTrait
                 if (isset(self::$loaders[$class])) {
                     return $class;
                 }
-            } while (($class = get_parent_class($class)));
+                $class = get_parent_class($class);
+            } while ($class);
         }
 
         return false;
