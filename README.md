@@ -1,8 +1,8 @@
 # phossa-shared
-[![Build Status](https://travis-ci.org/phossa/phossa-shared.svg)](https://travis-ci.org/phossa/phossa-shared.svg)
-[![HHVM Status](http://hhvm.h4cc.de/badge/phossa/phossa-shared.svg)](http://hhvm.h4cc.de/package/phossa/phossa-shared)
-[![Latest Stable Version](https://poser.pugx.org/phossa/phossa-shared/v/stable)](https://packagist.org/packages/phossa/phossa-shared)
-[![License](https://poser.pugx.org/phossa/phossa-shared/license)](https://packagist.org/packages/phossa/phossa-shared)
+[![Build Status](https://travis-ci.org/phossa/phossa-shared.svg?branch=master)](https://travis-ci.org/phossa/phossa-shared)
+[![HHVM](https://img.shields.io/hhvm/phossa/phossa-shared.svg?style=flat)](http://hhvm.h4cc.de/package/phossa/phossa-shared)
+[![Latest Stable Version](https://img.shields.io/packagist/vpre/phossa/phossa-shared.svg?style=flat)](https://packagist.org/packages/phossa/phossa-shared)
+[![License](https://poser.pugx.org/phossa/phossa-shared/license)](http://mit-license.org/)
 
 Introduction
 ---
@@ -23,7 +23,7 @@ or add the following lines to your `composer.json`
 ```json
 {
     "require": {
-       "phossa/phossa-shared": "^1.0.7"
+       "phossa/phossa-shared": "^1.0.9"
     }
 }
 ```
