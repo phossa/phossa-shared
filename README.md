@@ -235,6 +235,10 @@ Features
     }
     ```
 
+- **Taggable**
+
+  Added `TaggableInterface` and `TaggableTrait`.
+
 - Support PHP 5.4+, PHP 7.0+, HHVM
 
 - PHP7 ready for return type declarations and argument type declarations.

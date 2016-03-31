@@ -15,7 +15,6 @@
             <directory>./tests/src/</directory>
         </testsuite>
     </testsuites>
-
     <filter>
         <whitelist>
             <directory>./src/</directory>
