@@ -89,5 +89,7 @@ trait ErrorAwareTrait
         } else {
             $this->error_code = $zcode;
         }
+
+        return $this;
     }
 }
